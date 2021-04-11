@@ -1,0 +1,58 @@
+---
+root(Type=CompilationUnit)
+    types
+        type(Type=ClassOrInterfaceDeclaration)
+            isInterface: "false"
+            name(Type=SimpleName)
+                identifier: "HelloWorld"
+            members
+                member(Type=MethodDeclaration)
+                    body(Type=BlockStmt)
+                        statements
+                            statement(Type=ExpressionStmt)
+                                expression(Type=VariableDeclarationExpr)
+                                    variables
+                                        variable(Type=VariableDeclarator)
+                                            initializer(Type=IntegerLiteralExpr)
+                                                value: "5"
+                                            type(Type=PrimitiveType)
+                                                type: "INT"
+                                            Node1
+                            statement(Type=ExpressionStmt)
+                                expression(Type=AssignExpr)
+                                    operator: "ASSIGN"
+                                    value(Type=IntegerLiteralExpr)
+                                        value: "7"
+                                    Node2
+                            statement(Type=ExpressionStmt)
+                                expression(Type=AssignExpr)
+                                    operator: "ASSIGN"
+                                    value(Type=BinaryExpr)
+                                        operator: "PLUS"
+                                        left(Type=IntegerLiteralExpr)
+                                            value: "2"
+                                        right(Type=IntegerLiteralExpr)
+                                            value: "7"
+                                    Node2
+                    type(Type=VoidType)
+                    name(Type=SimpleName)
+                        identifier: "main"
+                    modifiers
+                        modifier(Type=Modifier)
+                            keyword: "PRIVATE"
+                        modifier(Type=Modifier)
+                            keyword: "STATIC"
+                    parameters
+                        parameter(Type=Parameter)
+                            isVarArgs: "false"
+                            name(Type=SimpleName)
+                                identifier: "args"
+                            type(Type=ArrayType)
+                                origin: "TYPE"
+                                componentType(Type=ClassOrInterfaceType)
+                                    name(Type=SimpleName)
+                                        identifier: "String"
+            modifiers
+                modifier(Type=Modifier)
+                    keyword: "PUBLIC"
+...
