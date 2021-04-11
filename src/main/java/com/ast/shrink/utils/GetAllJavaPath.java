@@ -17,10 +17,19 @@ import static com.github.javaparser.utils.Utils.assertNotNull;
 import static java.nio.file.FileVisitResult.CONTINUE;
 import static java.nio.file.FileVisitResult.SKIP_SUBTREE;
 
+/**
+ * Gets all the paths to java files in specified folder
+ */
 public class GetAllJavaPath {
 
     private GetAllJavaPath(){};
 
+    /**
+     *
+     * @param root Path to directory where java files are searched.
+     * @return List of paths to java files in directory root and it's subdirectories.
+     * @throws IOException
+     */
     public static List<Path> getAllJavaPath(Path root) throws IOException {
         assertNotNull(root);
         List<Path> javaPath = new ArrayList<>();

@@ -16,6 +16,16 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Saves various representations of shrinked AST trees from java files from mainDir to directory saveDir.
+ * Saves three types of files:
+ * JavaFileName.txt - dump of shrinked AST tree
+ * JavaFileName_YamlPrinter.txt - visualization of shrinked AST tree. It is constructed with MyYamlPrinter from src/main/java/com.ast.shrink/printer
+ * JavaFileName.dot - intermediate representation of shrinked AST tree Is is constructed with MyDotPrinter from src/main/java/com.ast.shrink/printer
+ * You can transform it to png with terminal command:
+ * dot -Tpng JavaFileName.dot > ast.png
+ *
+ */
 public class SaveToFile {
     public Path mainDir;
     public Path saveDir;
@@ -25,13 +35,22 @@ public class SaveToFile {
         this(numberOfShrinks, Paths.get("./src/main/resources"), Paths.get("./src/main/Data"));
     }
 
+    /**
+     *
+     * @param numberOfShrinks number of shrinks to perform on AST
+     * @param mainDir directory with java files. By default it is ./src/main/resources
+     * @param saveDir directory to which we save representations. By default it is ./src/main/Data
+     */
     public SaveToFile(Integer numberOfShrinks, Path mainDir, Path saveDir){
         this.numberOfShrinks = numberOfShrinks;
         this.mainDir = mainDir;
         this.saveDir = saveDir;
     }
 
-
+    /**
+     * Saves representations of shrinkes ASTs.
+     * @throws IOException
+     */
     public void save() throws IOException {
         SourceRoot sourceRoot = new SourceRoot(mainDir);
 

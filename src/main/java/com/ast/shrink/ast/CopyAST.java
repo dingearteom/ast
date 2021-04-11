@@ -11,6 +11,9 @@ import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.metamodel.NodeMetaModel;
 import com.github.javaparser.metamodel.PropertyMetaModel;
 
+/**
+ * Transforms javaparser AST trees to ours.
+ */
 public class CopyAST {
 
     private CopyAST(){};

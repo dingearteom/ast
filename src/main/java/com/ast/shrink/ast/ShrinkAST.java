@@ -5,10 +5,20 @@ import com.ast.shrink.utils.Pair;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Shrinks AST trees.
+ */
 public class ShrinkAST {
     private int count = 0;
 
     public ShrinkAST(){}
+
+    /**
+     *
+     * @param root - root of our AST.
+     * @param numberOfShrinks number of times it'll shrink the tree
+     * @return root of shrinked AST.
+     */
     public MyNode shrink(MyNode root, Integer numberOfShrinks){
         MyNode result = root;
         for (int i = 0; i < numberOfShrinks; i++){
@@ -44,6 +54,13 @@ public class ShrinkAST {
         return Optional.of(result);
     }
 
+    /**
+     * Merges two nodes in the tree. The name of resulting node will be NodeN where N - arbitrary number.
+     * @param parent
+     * @param child
+     * @param newNodeName
+     * @return root of transformed tree.
+     */
     public MyNode mergeNodes(MyNode parent, MyNode child, String newNodeName){
         MyNode newNode = new MyNode(newNodeName);
         List<MyNode> children = parent.children.stream()
@@ -68,6 +85,13 @@ public class ShrinkAST {
     /*
     First node is parent node, second is a child node.
      */
+
+    /**
+     * Finds pair of Nodes to merge. It has to have names corresponding to pairToShrink
+     * @param node
+     * @param pairToShrink
+     * @return
+     */
     public Optional<Pair<MyNode, MyNode>> findPairNodes(MyNode node, Pair<String, String> pairToShrink) {
         for (MyNode child : node.children){
             Pair<String, String> pair = new Pair<>(node.name, child.name);
@@ -84,6 +108,11 @@ public class ShrinkAST {
         return Optional.empty();
     }
 
+    /**
+     * Finds most frequently encountered pair of types in the tree.
+     * @param root
+     * @return
+     */
     private static Optional<Pair<String, String>> findPairTypesToShrink(MyNode root){
         Map<Pair<String, String>, Integer> count = new HashMap<>();
 

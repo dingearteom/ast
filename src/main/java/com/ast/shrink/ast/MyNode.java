@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Main class for storing and processing AST trees. It is constructed from AST trees that javaparser constructs. Look
+ * at class CopyAST for details about transforming from javaparser AST to ours.
+ */
 public class MyNode implements Serializable {
     private static final long serialVersionUID = 1L;
     public MyNode parent;

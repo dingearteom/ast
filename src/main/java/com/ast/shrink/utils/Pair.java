@@ -1,5 +1,8 @@
 package com.ast.shrink.utils;
 
+/**
+Just Pair class. It is used internally in other classes.
+ */
 public class Pair<K, V>{
     public final K first;
     public final V second;
