@@ -7,7 +7,7 @@ import org.junit.Test;
 /**
  * Unit test for simple App.
  */
-class ShrinkAstTest
+public class ShrinkAstTest
 {
     /**
      * Rigorous Test :-)
