@@ -33,9 +33,29 @@ It saves three type of files:
 abstract syntax trees and it is serializable, so it I dump. Such files can be used later for reconstructing ast tree and writing some its visual representation.
 * JavaFileName_YamlPrinter.txt - file with visual representation of shrinked ast of file JavaFileName.java. It is constructed with src/main/java/com.ast.shrink/printer/MyYamlPrinter.
 * JavaFileName.dot - it is intermediate representation of shrinked ast. It is used for building png files. Just use terminal command:
+
 ```
 dot -Tpng JavaFileName.dot > ast.png
 ```
+
 Though, it is worth doing only with really small code.
+
+All classes are supplemented with abundant documentation. 
+All code is situated in following folders:
+* ast
+* printer
+* utils
+
+in directory src/main/java/com.ast.shrink.
+
+## How to use MyYamlPrinter on dumped AST:
+Example:
+```
+MyYamlPrinter printer = new MyYamlPrinter(Paths.get("./src/main/Data"));
+printer.print(Paths.get(relativePathToDumpedASTFile));
+```
+Write this code in main method of class Main and it'll write _YamlPrinter representation to console.
+Dumped AST file is one of those JavaFileName.txt.
+
 
 
